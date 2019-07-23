@@ -1,7 +1,5 @@
 var request = require('request');
-var md5 = require('md5');
 var querystring = require('querystring');
-var config = require('../config');
 
 
 class PosterApi {
@@ -11,7 +9,6 @@ class PosterApi {
      */
     constructor(props) {
         this.token = props.token;
-        this.account = props.account;
     }
 
     /**

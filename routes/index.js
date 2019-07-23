@@ -1,11 +1,13 @@
 const express = require('express');
-const config = require('../config');
+const config = require('../manifest');
 const PosterApi = require('../api/poster');
 
 const router = new express.Router();
 
 
 router.get('/', async (req, res) => {
+    console.log(config);
+
     const posterApi = new PosterApi({ token: config.token });
 
     const products = await posterApi.makePosterRequest('menu.getProducts');
