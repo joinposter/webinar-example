@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manage Platform Application</title>
+
+</head>
+<body>
+
+<form action="/save-emoji" method="post">
+    <label class="emoji">
+        💩 <input type="radio" value="poop" name="emoji" <% if (emoji === 'poop') { %> checked  <% } %> >
+    </label>
+
+    <label class="emoji">
+        👻 <input type="radio" value="ghost" name="emoji" <% if (emoji === 'ghost') { %> checked  <% } %> >
+    </label>
+
+    <label class="emoji">
+        🤖 <input type="radio" value="robot" name="emoji" <% if (emoji === 'robot') { %> checked  <% } %> >
+    </label>
+
+    <input type="hidden" value="<%= account %>" name="account">
+    <input type="hidden" value="<%= token %>" name="token">
+
+    <button type="submit">Выбрать emoji</button>
+</form>
+
+
+<!-- Скрипт чтобы убрать окно загрузуки Poster -->
+<script>
+    window.addEventListener('load', function () {
+        top.postMessage({hideSpinner: true}, '*')
+    }, false);
+</script>
+
+<!-- Навели немного красоты -->
+<style>
+    html, body {
+        height: 100%;
+        text-align: center;
+        font-family: "Proxima Nova", "Helvetica Neue", Arial;
+    }
+
+    body {
+        padding-top: 15%;
+    }
+
+    button {
+        display: block;
+        text-align: center;
+        margin: 30px auto 10px auto;
+
+        padding: 15px 90px;
+        font-size: 20px;
+        color: white;
+        background: #10B02D;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0e9526;
+    }
+
+    .emoji {
+        position: relative;
+        display: inline-block;
+        width: 160px;
+        height: 160px;
+        margin: 20px;
+
+        font-size: 90px;
+        line-height: 170px;
+        text-align: center;
+
+        border: 1px solid #eeeeee;
+        border-radius: 5px;
+    }
+
+    input {
+        -webkit-appearance: none;
+        position: absolute;
+        display: block;
+        width: 162px;
+        height: 162px;
+
+        left: -4px;
+        right: 0px;
+        top: -4px;
+        bottom: 0px;
+
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    input:checked {
+        border: 1px solid #1b82e5;
+    }
+</style>
+
+</body>
+</html>
